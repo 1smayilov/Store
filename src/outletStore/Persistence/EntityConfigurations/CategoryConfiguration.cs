@@ -18,5 +18,6 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
         builder.Property(c => c.DeletedDate).HasColumnName("DeletedDate");
 
         builder.HasQueryFilter(c => !c.DeletedDate.HasValue);
+        builder.HasMany(b => b.Products);
     }
 }

@@ -11,4 +11,19 @@ public class Category:Entity<int>
 {
     public string Name { get; set; }
     public bool Status { get; set; }
+    public virtual ICollection<Product> Products { get; set; }
+
+    public Category()
+    {
+        Products = new HashSet<Product>();
+    }
+
+    public Category(int id, string name, bool status) : this()
+    {
+        Id = id;
+        Name = name;
+        Status = status;
+    }
+
+
 }
